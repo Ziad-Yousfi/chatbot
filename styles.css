@@ -1,0 +1,899 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Dark theme colors - Apple style */
+    --bg-primary: #000000;
+    --bg-secondary: #1c1c1e;
+    --bg-tertiary: #2c2c2e;
+    --bg-elevated: #3a3a3c;
+    
+    /* Text colors */
+    --text-primary: #ffffff;
+    --text-secondary: #ebebf5;
+    --text-tertiary: #98989d;
+    
+    /* Accent colors */
+    --accent-blue: #0a84ff;
+    --accent-blue-hover: #409cff;
+    --accent-purple: #af52de;
+    --accent-green: #34c759;
+    
+    /* Message colors */
+    --user-message-bg: #0a84ff;
+    --bot-message-bg: #2c2c2e;
+    
+    /* Borders and shadows */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color-hover: rgba(255, 255, 255, 0.2);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6);
+    
+    /* Glass effect */
+    --glass-bg: rgba(28, 28, 30, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--bg-primary);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(10, 132, 255, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(175, 82, 222, 0.1) 0px, transparent 50%);
+    min-height: 100vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    height: 100vh;
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.new-conversation-btn {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.new-conversation-btn:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-color-hover);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.new-conversation-btn:active {
+    transform: translateY(0);
+}
+
+.conversations-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.conversation-item {
+    padding: 16px 20px;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    border: none;
+    font-family: inherit;
+    letter-spacing: -0.01em;
+    word-break: break-word;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.6;
+}
+
+.conversation-item:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.conversation-item.active {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+}
+
+.conversation-item-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.conversation-item-delete {
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.conversation-item:hover .conversation-item-delete {
+    opacity: 1;
+}
+
+.conversation-item-delete:hover {
+    background: rgba(255, 59, 48, 0.2);
+    color: #ff3b30;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+    padding-left: 0;
+}
+
+/* Cursor styles for different elements */
+*, *::before, *::after {
+    cursor: inherit;
+}
+
+/* Default cursor for clickable elements */
+a, button, [role="button"], [onclick] {
+    cursor: pointer;
+}
+
+/* Text cursor for input fields and text areas */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+textarea,
+[contenteditable="true"],
+[contenteditable] {
+    cursor: text;
+}
+
+/* Grab cursor for draggable elements */
+[draggable="true"] {
+    cursor: grab;
+}
+
+[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Not allowed cursor for disabled elements */
+button:disabled,
+input:disabled,
+textarea:disabled,
+[disabled] {
+    cursor: not-allowed;
+}
+
+/* Move cursor for resizable elements */
+[resize="both"] {
+    cursor: nwse-resize;
+}
+
+[resize="horizontal"] {
+    cursor: ew-resize;
+}
+
+[resize="vertical"] {
+    cursor: ns-resize;
+}
+
+/* Wait cursor for loading states */
+.loading, [aria-busy="true"] {
+    cursor: wait;
+}
+
+/* Help cursor for elements with help text */
+[title], [data-tooltip] {
+    cursor: help;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header {
+    background: rgba(28, 28, 30, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--text-primary);
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.new-conversation-header-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.new-conversation-header-btn:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-color-hover);
+    color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.new-conversation-header-btn:active {
+    transform: scale(0.95);
+}
+
+header p {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    letter-spacing: -0.01em;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    text-align: left;
+    margin: 0;
+}
+
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px 40px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    cursor: default;
+}
+
+.chat-container:hover {
+    cursor: default;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message {
+    display: flex;
+    gap: 12px;
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 85%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message.bot-message {
+    align-self: flex-start;
+}
+
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.user-message .message-avatar {
+    background: var(--user-message-bg);
+    border-color: transparent;
+}
+
+.message-content {
+    padding: 16px 20px;
+    border-radius: 20px;
+    word-wrap: break-word;
+    line-height: 1.6;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+    cursor: default;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+.user-message .message-content {
+    background: var(--user-message-bg);
+    color: var(--text-primary);
+    border-bottom-right-radius: 6px;
+    box-shadow: var(--shadow-sm);
+}
+
+.user-message .message-content:hover {
+    background: var(--accent-blue-hover);
+}
+
+.bot-message .message-content {
+    background: var(--bot-message-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 6px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.message-content p {
+    margin: 0;
+    line-height: 1.5;
+    cursor: text;
+}
+
+.message-content:hover p {
+    cursor: text;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    align-self: flex-start;
+    margin-top: -20px;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 6px;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    opacity: 0.6;
+    animation: typing 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+    30% {
+        transform: translateY(-8px) scale(1.1);
+        opacity: 1;
+    }
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 24px;
+    background: rgba(28, 28, 30, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-color);
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+#userInput {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 22px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: inherit;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: text;
+}
+
+#userInput::placeholder {
+    color: var(--text-tertiary);
+}
+
+#userInput:focus {
+    border-color: var(--accent-blue);
+    background: var(--bg-elevated);
+    box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.15);
+    cursor: text;
+}
+
+#userInput:hover:not(:focus) {
+    border-color: var(--border-color-hover);
+    background: var(--bg-elevated);
+    cursor: text;
+}
+
+#sendButton {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    flex-shrink: 0;
+}
+
+#sendButton::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(10, 132, 255, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#sendButton:hover {
+    background: var(--accent-blue-hover);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+}
+
+#sendButton:hover::before {
+    opacity: 1;
+}
+
+#sendButton:active {
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
+#sendButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#sendButton svg {
+    transition: transform 0.2s ease;
+    pointer-events: none;
+}
+
+#sendButton:hover svg {
+    transform: translateX(2px) translateY(-2px);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    white-space: nowrap;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.action-btn:hover {
+    border-color: var(--border-color-hover);
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+}
+
+.action-btn:hover::before {
+    opacity: 1;
+}
+
+.action-btn:active {
+    transform: translateY(0);
+    cursor: pointer;
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Scrollbar styling - Apple style */
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+    cursor: default;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    transition: background 0.2s ease;
+    cursor: grab;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: grab;
+}
+
+.chat-container::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
+}
+
+/* For Firefox */
+.chat-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Responsive design - Tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        max-width: 95%;
+        height: 95vh;
+        max-height: 1050px;
+    }
+
+    header {
+        padding: 16px 24px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 12px;
+    }
+
+    .chat-container {
+        padding: 28px 32px;
+    }
+
+    .message {
+        max-width: 80%;
+    }
+}
+
+/* Scrollbar pour sidebar */
+.sidebar::-webkit-scrollbar,
+.conversations-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.conversations-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.conversations-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.conversations-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive design - Mobile */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .sidebar {
+        width: 240px;
+        min-width: 240px;
+        position: fixed;
+        left: -240px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .container {
+        height: 100vh;
+        border-radius: 0;
+        border: none;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    header {
+        padding: 14px 20px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 11px;
+    }
+
+.chat-container {
+    padding: 24px 28px;
+}
+
+    .input-container {
+        padding: 12px 16px;
+    }
+
+    .input-wrapper {
+        gap: 10px;
+    }
+
+    #userInput {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    #sendButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .actions {
+        gap: 6px;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(10, 132, 255, 0.3);
+    color: var(--text-primary);
+    cursor: text;
+}
+
+::-moz-selection {
+    background: rgba(10, 132, 255, 0.3);
+    color: var(--text-primary);
+    cursor: text;
+}
+
+/* Custom cursor for different states */
+.container {
+    cursor: default;
+}
+
+/* Input focus cursor enhancement */
+#userInput:focus {
+    caret-color: var(--accent-blue);
+}
+
+/* Message hover effect with cursor change */
+.message {
+    cursor: default;
+}
+
+.message:hover {
+    cursor: default;
+}
+
+/* Prevent text selection on non-text elements */
+header, .actions, .input-container, .typing-indicator {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Allow text selection in message content */
+.message-content, .message-content p {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+

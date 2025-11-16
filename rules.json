@@ -1,0 +1,540 @@
+{
+  "greetings": {
+    "patterns": [
+      "bonjour",
+      "salut",
+      "bonsoir",
+      "hello",
+      "hi",
+      "hey",
+      "bon matin",
+      "coucou",
+      "bonjour {userName}",
+      "salut {userName}",
+      "hello there",
+      "salut toi",
+      "bonjour à toi",
+      "hey there",
+      "bonne journée"
+    ],
+    "responses": [
+      "{greeting} ! Comment puis-je vous aider aujourd'hui ?",
+      "Salut ! Que puis-je faire pour vous ?",
+      "{greeting} ! En quoi puis-je vous assister ?",
+      "Hello ! Comment allez-vous ?",
+      "Salut ! Qu'est-ce qui vous amène ici ?",
+      "{greeting} ! {userName} Ravie de vous revoir !"
+    ]
+  },
+  "farewells": {
+    "patterns": [
+      "au revoir",
+      "à bientôt",
+      "bye",
+      "ciao",
+      "à plus",
+      "salut",
+      "bonne journée",
+      "bonne soirée"
+    ],
+    "responses": [
+      "Au revoir ! À bientôt !",
+      "Bonne journée ! Revenez quand vous voulez !",
+      "À bientôt ! Ce fut un plaisir de vous aider !",
+      "Au revoir ! Prenez soin de vous !",
+      "Bonne soirée ! N'hésitez pas à revenir !"
+    ]
+  },
+  "help": {
+    "patterns": [
+      "aide",
+      "help",
+      "que peux tu faire",
+      "qu'est ce que tu sais faire",
+      "fonctionnalités",
+      "commandes"
+    ],
+    "responses": [
+      "Je peux répondre à vos questions ! Essayez de me parler de la météo, de l'heure, ou simplement de discuter avec moi.",
+      "Je suis là pour vous aider ! Posez-moi des questions ou engagez une conversation.",
+      "Je peux discuter avec vous sur divers sujets. Que souhaitez-vous savoir ?",
+      "Mes fonctionnalités incluent : répondre à vos questions, discuter, donner l'heure, parler de la météo et bien plus encore !"
+    ]
+  },
+  "time": {
+    "patterns": [
+      "quelle heure",
+      "quelle heure est-il",
+      "heure",
+      "time",
+      "l'heure"
+    ],
+    "responses": [
+      "Il est {time} actuellement.",
+      "La date et l'heure actuelles sont : {dateTime}.",
+      "Nous sommes le {date} et il est {time}."
+    ]
+  },
+  "weather": {
+    "patterns": [
+      "météo",
+      "temps",
+      "weather",
+      "qu'il fait",
+      "température",
+      "fait-il beau"
+    ],
+    "responses": [
+      "Je suis désolé, mais je ne peux pas accéder aux données météo en temps réel car je fonctionne hors ligne. Cependant, vous pouvez vérifier la météo sur votre application météo préférée !",
+      "En tant que chatbot offline, je n'ai pas accès aux informations météorologiques en temps réel. Pourriez-vous vérifier ailleurs ?",
+      "Malheureusement, je ne peux pas vous donner la météo car je fonctionne entièrement hors ligne."
+    ]
+  },
+  "thanks": {
+    "patterns": [
+      "merci",
+      "thanks",
+      "thank you",
+      "merci beaucoup",
+      "merci bien"
+    ],
+    "responses": [
+      "De rien ! Content d'avoir pu vous aider !",
+      "Je vous en prie ! N'hésitez pas si vous avez d'autres questions !",
+      "De rien ! C'était un plaisir !",
+      "Avec plaisir ! Revenez quand vous voulez !",
+      "Pas de problème ! Bonne continuation !"
+    ]
+  },
+  "how_are_you": {
+    "patterns": [
+      "comment allez-vous",
+      "ça va",
+      "comment vas-tu",
+      "how are you",
+      "comment tu vas",
+      "ça va bien"
+    ],
+    "responses": [
+      "Ça va très bien, merci ! Et vous, comment allez-vous ?",
+      "Je vais bien, merci de demander ! Qu'en est-il de vous ?",
+      "Tout va pour le mieux ! J'espère que vous allez bien aussi !",
+      "Très bien, merci ! Et de votre côté, tout va bien ?"
+    ]
+  },
+  "name": {
+    "patterns": [
+      "quel est ton nom",
+      "comment tu t'appelles",
+      "qui es-tu",
+      "what's your name",
+      "ton nom",
+      "tu es qui",
+      "comment t'appelles-tu",
+      "quel est votre nom",
+      "dis moi ton nom",
+      "comment vous appelez-vous"
+    ],
+    "responses": [
+      "Je suis un chatbot basé sur des règles, créé pour vous aider et discuter avec vous !",
+      "Je suis votre assistant virtuel offline ! Vous pouvez m'appeler comme vous le souhaitez.",
+      "Je suis un chatbot intelligent fonctionnant hors ligne. Mon nom est à votre choix !",
+      "Je suis votre compagnon de conversation offline. Vous pouvez me donner un nom si vous le souhaitez !",
+      "Je n'ai pas vraiment de nom, mais vous pouvez m'en donner un si vous voulez ! {userName} Et vous, comment vous appelez-vous ?"
+    ]
+  },
+  "introduction": {
+    "patterns": [
+      "je m'appelle",
+      "mon nom est",
+      "je suis",
+      "appelle-moi",
+      "moi c'est",
+      "my name is",
+      "i'm",
+      "i am"
+    ],
+    "responses": [
+      "Enchanté de faire votre connaissance {userName} ! Comment puis-je vous aider ?",
+      "Très heureux de vous rencontrer {userName} ! Que puis-je faire pour vous ?",
+      "Ravi de vous connaître {userName} ! En quoi puis-je vous assister aujourd'hui ?",
+      "Bonjour {userName} ! C'est un plaisir de discuter avec vous. Comment puis-je vous aider ?"
+    ]
+  },
+  "positive": {
+    "patterns": [
+      "super",
+      "génial",
+      "parfait",
+      "excellent",
+      "bien",
+      "ok",
+      "d'accord",
+      "okay",
+      "cool",
+      "chouette",
+      "sympa"
+    ],
+    "responses": [
+      "Je suis content que cela vous plaise !",
+      "Ravi que vous soyez satisfait !",
+      "Excellent ! Y a-t-il autre chose que je puisse faire pour vous ?",
+      "Parfait ! N'hésitez pas si vous avez d'autres questions.",
+      "Super ! Je suis là pour vous aider si besoin."
+    ]
+  },
+  "negative": {
+    "patterns": [
+      "non",
+      "pas bien",
+      "pas bon",
+      "mauvais",
+      "pas content",
+      "pas d'accord",
+      "nul",
+      "déçu"
+    ],
+    "responses": [
+      "Je suis désolé si je n'ai pas répondu à vos attentes. Comment puis-je mieux vous aider ?",
+      "Je comprends votre déception. Pouvez-vous me dire ce qui ne va pas ?",
+      "Désolé pour cela. Que puis-je faire pour améliorer la situation ?",
+      "Je m'excuse. Comment puis-je mieux vous assister ?"
+    ]
+  },
+  "joke": {
+    "patterns": [
+      "blague",
+      "rigoler",
+      "drôle",
+      "humour",
+      "rire",
+      "marrant",
+      "joke",
+      "funny"
+    ],
+    "responses": [
+      "Pourquoi les plongeurs plongent-ils toujours en arrière ? Parce que sinon, ils tombent dans le bateau ! 😄",
+      "Que dit une imprimante dans l'eau ? J'ai papier ! 📄",
+      "Pourquoi les plongeons ont-ils toujours froid ? Parce qu'ils sont dans l'eau ! 🏊",
+      "Qu'est-ce qui est jaune et qui attend ? Jonathan ! 🟡",
+      "Je suis peut-être un chatbot, mais j'ai le sens de l'humour ! 😊"
+    ]
+  },
+  "math": {
+    "patterns": [
+      "math",
+      "mathématiques",
+      "calcul",
+      "addition",
+      "soustraction",
+      "multiplication",
+      "division",
+      "équation",
+      "calculer",
+      "combien fait",
+      "what is",
+      "how much",
+      "plus",
+      "moins",
+      "fois",
+      "diviser"
+    ],
+    "responses": [
+      "Je peux vous aider avec les mathématiques ! Pouvez-vous me donner plus de détails sur le calcul ou la question mathématique ?",
+      "Les mathématiques, c'est intéressant ! Quelle opération ou question souhaitez-vous résoudre ?",
+      "Je peux discuter de mathématiques. Donnez-moi plus de précisions sur votre question ou calcul.",
+      "Parlons de math ! Précisez votre calcul ou votre question mathématique et je ferai de mon mieux pour vous aider."
+    ]
+  },
+  "science": {
+    "patterns": [
+      "science",
+      "physique",
+      "chimie",
+      "biologie",
+      "atome",
+      "molécule",
+      "gravité",
+      "énergie",
+      "électricité",
+      "réaction",
+      "cellule",
+      "ADN",
+      "planète",
+      "étoile",
+      "galaxie"
+    ],
+    "responses": [
+      "La science est fascinante ! Je peux discuter de physique, chimie, biologie et bien d'autres domaines. Sur quel sujet scientifique souhaitez-vous en savoir plus ?",
+      "Les sciences couvrent de nombreux domaines passionnants ! Quelle branche vous intéresse : physique, chimie, biologie, astronomie ?",
+      "Je serais ravi de discuter de sciences avec vous. Pouvez-vous préciser le domaine qui vous intéresse ?",
+      "La science est vaste et passionnante ! Sur quel aspect aimeriez-vous discuter : physique, chimie, biologie, astronomie ou autre ?"
+    ]
+  },
+  "history": {
+    "patterns": [
+      "histoire",
+      "historique",
+      "passé",
+      "ancien",
+      "guerre",
+      "guerre mondiale",
+      "révolution",
+      "napoléon",
+      "charlemagne",
+      "antiquité",
+      "moyen âge",
+      "renaissance",
+      "dates historiques",
+      "événement historique"
+    ],
+    "responses": [
+      "L'histoire est riche d'enseignements ! Sur quelle période ou événement historique souhaitez-vous discuter ?",
+      "Je peux parler de l'histoire et des événements historiques. Quelle période ou événement vous intéresse ?",
+      "L'histoire fascine ! Pouvez-vous me préciser la période ou l'événement historique qui vous intéresse ?",
+      "Parler d'histoire, c'est passionnant ! Sur quelle période historique souhaitez-vous en savoir plus : Antiquité, Moyen Âge, Renaissance, ou période moderne ?"
+    ]
+  },
+  "geography": {
+    "patterns": [
+      "géographie",
+      "pays",
+      "capitale",
+      "ville",
+      "continent",
+      "océan",
+      "montagne",
+      "fleuve",
+      "rivière",
+      "paris",
+      "france",
+      "europe",
+      "afrique",
+      "asie",
+      "amérique",
+      "océanie"
+    ],
+    "responses": [
+      "La géographie, c'est vaste ! Sur quel pays, ville, continent ou sujet géographique souhaitez-vous discuter ?",
+      "Je peux vous parler de géographie : pays, capitales, villes, continents, etc. Quel sujet vous intéresse ?",
+      "La géographie couvre de nombreux sujets ! Voulez-vous discuter d'un pays, d'une capitale, d'une ville ou d'un autre sujet géographique ?",
+      "Parlons de géographie ! Sur quel sujet souhaitez-vous en savoir plus : un pays, une ville, un continent, ou autre chose ?"
+    ]
+  },
+  "technology": {
+    "patterns": [
+      "technologie",
+      "tech",
+      "informatique",
+      "programmation",
+      "code",
+      "ordinateur",
+      "ordinateur",
+      "internet",
+      "web",
+      "site web",
+      "application",
+      "app",
+      "smartphone",
+      "ordinateur portable",
+      "logiciel",
+      "hardware",
+      "software",
+      "IA",
+      "intelligence artificielle",
+      "robot",
+      "algorithm"
+    ],
+    "responses": [
+      "La technologie évolue rapidement ! Sur quel aspect technologique souhaitez-vous discuter : programmation, informatique, IA, web, ou autre ?",
+      "Je peux discuter de technologie et d'informatique. Quel sujet vous intéresse : programmation, développement web, IA, ou autre domaine technologique ?",
+      "La technologie est passionnante ! Sur quel domaine souhaitez-vous en savoir plus : programmation, informatique, intelligence artificielle ?",
+      "Parlons de technologie ! Je peux discuter de programmation, informatique, web, IA, etc. Quel sujet vous intéresse ?"
+    ]
+  },
+  "culture": {
+    "patterns": [
+      "culture",
+      "culture générale",
+      "connaissance",
+      "savoir",
+      "apprendre",
+      "enseignement",
+      "éducation",
+      "livre",
+      "littérature",
+      "art",
+      "musique",
+      "peinture",
+      "sculpture",
+      "cinéma",
+      "film"
+    ],
+    "responses": [
+      "La culture générale, c'est passionnant ! Sur quel sujet souhaitez-vous discuter : art, littérature, musique, cinéma, ou autre ?",
+      "Je peux répondre à des questions de culture générale. Quel domaine vous intéresse ?",
+      "Parlons de culture ! Sur quel aspect souhaitez-vous en savoir plus : art, littérature, musique, histoire de l'art, ou autre ?",
+      "La culture est vaste et enrichissante ! Quel sujet culturel vous intéresse ?"
+    ]
+  },
+  "advice": {
+    "patterns": [
+      "conseil",
+      "conseils",
+      "aide-moi",
+      "aide toi",
+      "comment faire",
+      "que faire",
+      "suggestion",
+      "recommandation",
+      "astuce",
+      "truc",
+      "méthode",
+      "technique",
+      "guide",
+      "solution"
+    ],
+    "responses": [
+      "Je peux vous donner des conseils ! Sur quel sujet avez-vous besoin d'aide ?",
+      "Je serais ravi de vous conseiller. Pouvez-vous préciser la situation ou le domaine pour lequel vous avez besoin de conseils ?",
+      "Des conseils ? Bien sûr ! Sur quel aspect souhaitez-vous des suggestions ou des recommandations ?",
+      "Je peux vous donner des conseils et suggestions. Quel domaine vous préoccupe : travail, études, quotidien, ou autre ?"
+    ]
+  },
+  "animals": {
+    "patterns": [
+      "animaux",
+      "animal",
+      "chien",
+      "chat",
+      "chat",
+      "oiseau",
+      "poisson",
+      "lapin",
+      "souris",
+      "nature",
+      "faune",
+      "flore",
+      "mammifère",
+      "reptile",
+      "amphibien"
+    ],
+    "responses": [
+      "Les animaux sont fascinants ! Sur quel animal ou sujet de la nature souhaitez-vous discuter ?",
+      "Je peux parler d'animaux et de nature. Quel animal ou sujet vous intéresse ?",
+      "Parlons d'animaux ! Sur quelle espèce ou quel aspect du règne animal souhaitez-vous en savoir plus ?",
+      "La nature et les animaux, c'est passionnant ! Quel animal ou sujet de la nature vous intéresse ?"
+    ]
+  },
+  "cooking": {
+    "patterns": [
+      "cuisine",
+      "recette",
+      "cuisiner",
+      "manger",
+      "plat",
+      "repas",
+      "ingrédient",
+      "gâteau",
+      "patisserie",
+      "café",
+      "thé",
+      "boisson",
+      "aliment",
+      "nutrition"
+    ],
+    "responses": [
+      "La cuisine, c'est délicieux ! Souhaitez-vous discuter de recettes, d'ingrédients, de techniques culinaires, ou autre chose ?",
+      "Je peux parler de cuisine et de gastronomie. Quel sujet vous intéresse : recettes, ingrédients, techniques culinaires ?",
+      "Parlons de cuisine ! Sur quel aspect souhaitez-vous en savoir plus : recettes, techniques, ingrédients, ou nutrition ?",
+      "La cuisine est un art ! Quel sujet culinaire vous intéresse : recettes, patisserie, cuisine du monde, ou autre ?"
+    ]
+  },
+  "sports": {
+    "patterns": [
+      "sport",
+      "sports",
+      "football",
+      "basketball",
+      "tennis",
+      "natation",
+      "course",
+      "vélo",
+      "cyclisme",
+      "jogging",
+      "running",
+      "fitness",
+      "entraînement",
+      "exercice",
+      "olympiques",
+      "championnat"
+    ],
+    "responses": [
+      "Le sport, c'est excellent pour la santé ! Sur quel sport souhaitez-vous discuter : football, tennis, natation, ou autre ?",
+      "Je peux discuter de sports et d'activités physiques. Quel sport vous intéresse ?",
+      "Parlons de sport ! Sur quel sport ou activité physique souhaitez-vous en savoir plus ?",
+      "Les sports sont variés et passionnants ! Quel sport vous intéresse : football, basketball, tennis, natation, fitness, ou autre ?"
+    ]
+  },
+  "languages": {
+    "patterns": [
+      "langue",
+      "langues",
+      "français",
+      "anglais",
+      "anglais",
+      "espagnol",
+      "allemand",
+      "italien",
+      "traduction",
+      "traduire",
+      "mot",
+      "vocabulaire",
+      "grammaire",
+      "orthographe",
+      "syntaxe",
+      "phrase"
+    ],
+    "responses": [
+      "Les langues sont importantes ! Je peux aider avec le français, l'anglais, et discuter de langues. Quel aspect vous intéresse : vocabulaire, grammaire, traduction ?",
+      "Je peux vous aider avec les langues ! Sur quelle langue ou quel aspect linguistique souhaitez-vous discuter ?",
+      "Parlons de langues ! Je peux aider avec le français, l'anglais, et d'autres langues. Quel sujet vous intéresse ?",
+      "Les langues, c'est fascinant ! Sur quelle langue ou quel aspect linguistique souhaitez-vous en savoir plus ?"
+    ]
+  },
+  "date": {
+    "patterns": [
+      "date",
+      "aujourd'hui",
+      "hier",
+      "demain",
+      "jour",
+      "jour de la semaine",
+      "calendrier",
+      "mois",
+      "année",
+      "quelle date",
+      "quel jour",
+      "journée"
+    ],
+    "responses": [
+      "Nous sommes le {date}. {userName} Comment puis-je vous aider aujourd'hui ?",
+      "Aujourd'hui, c'est le {date}. En quoi puis-je vous assister ?",
+      "La date d'aujourd'hui est : {date}. Que souhaitez-vous savoir d'autre ?",
+      "Nous sommes le {date} et il est {time}. Comment puis-je vous aider ?"
+    ]
+  },
+  "default": {
+    "patterns": [],
+    "responses": [
+      "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question ?",
+      "Désolé, je n'ai pas bien saisi. Pourriez-vous être plus précis ?",
+      "Je ne suis pas certain de savoir quoi répondre. Essayez de poser une question différente.",
+      "Hmm, je ne suis pas sûr. Pouvez-vous essayer autrement ?",
+      "Je ne comprends pas tout à fait. Avez-vous une autre question ?",
+      "Pouvez-vous reformuler cela différemment ? Je fais de mon mieux pour vous comprendre.",
+      "C'est intéressant ! Pourriez-vous être un peu plus précis ?"
+    ]
+  }
+}
+
